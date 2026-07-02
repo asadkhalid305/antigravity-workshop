@@ -5,6 +5,7 @@ import {
   CalendarDays,
   CircleDollarSign,
   Compass,
+  GitCompareArrows,
   Pencil,
   MapPinned,
   PlaneTakeoff,
@@ -17,6 +18,7 @@ import {
 } from "lucide-react";
 import {
   buildTripInsightSummary,
+  buildTripComparison,
   formatMoney,
   getTripDailyCents,
   getTripDurationDays,
@@ -85,6 +87,20 @@ export function TripDashboard({ initialTrips }: TripDashboardProps) {
   const currentTrip = summary.currentTrip;
   const currentTotal = getTripTotalCents(currentTrip);
   const currentDaily = getTripDailyCents(currentTrip);
+  const [selectedCompareTripId, setSelectedCompareTripId] = useState(
+    initialTrips[1]?.id,
+  );
+  const compareTripId =
+    selectedCompareTripId && selectedCompareTripId !== currentTrip.id
+      ? selectedCompareTripId
+      : trips.find((trip) => trip.id !== currentTrip.id)?.id;
+  const comparison = useMemo(
+    () =>
+      compareTripId
+        ? buildTripComparison(trips, currentTrip.id, compareTripId)
+        : null,
+    [compareTripId, currentTrip.id, trips],
+  );
 
   return (
     <main className="app-shell min-h-screen px-4 py-5 sm:px-6 lg:px-10">
@@ -167,6 +183,15 @@ export function TripDashboard({ initialTrips }: TripDashboardProps) {
               setIsAddingTrip(false);
             }}
             trip={editingTrip}
+          />
+        )}
+
+        {comparison && (
+          <TripComparisonPanel
+            comparison={comparison}
+            onSelectCompareTrip={setSelectedCompareTripId}
+            selectedCompareTripId={compareTripId}
+            trips={trips}
           />
         )}
 
@@ -495,6 +520,132 @@ function TripForm({
       </div>
     </form>
   );
+}
+
+function TripComparisonPanel({
+  comparison,
+  trips,
+  selectedCompareTripId,
+  onSelectCompareTrip,
+}: {
+  comparison: ReturnType<typeof buildTripComparison>;
+  trips: Trip[];
+  selectedCompareTripId?: string;
+  onSelectCompareTrip: (tripId: string) => void;
+}) {
+  const strongestDeltas = comparison.categoryDeltas
+    .toSorted((a, b) => Math.abs(b.deltaCents) - Math.abs(a.deltaCents))
+    .slice(0, 4);
+
+  return (
+    <section className="floating-card rounded-lg p-5">
+      <div className="grid gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+        <div>
+          <div className="flex items-center gap-2 text-primary">
+            <GitCompareArrows className="size-5" aria-hidden="true" />
+            <p className="metric-label">Trip comparison</p>
+          </div>
+          <h2 className="mt-2 text-2xl font-semibold">
+            {comparison.baseTrip.destination} vs {comparison.compareTrip.destination}
+          </h2>
+          <p className="mt-2 text-sm leading-6 text-base-content/62">
+            Compare completed trips by total spend, daily average, and category
+            movement. This is post-trip insight, not live budgeting.
+          </p>
+
+          <label className="form-control mt-4">
+            <span className="label-text mb-2">Compare with</span>
+            <select
+              className="select select-bordered rounded-lg"
+              onChange={(event) => onSelectCompareTrip(event.target.value)}
+              value={selectedCompareTripId}
+            >
+              {trips
+                .filter((trip) => trip.id !== comparison.baseTrip.id)
+                .map((trip) => (
+                  <option key={trip.id} value={trip.id}>
+                    {trip.destination} · {trip.name}
+                  </option>
+                ))}
+            </select>
+          </label>
+        </div>
+
+        <div className="grid gap-3 md:grid-cols-2">
+          <DeltaCard
+            label="Total difference"
+            value={comparison.totalDeltaCents}
+            helper={`${Math.abs(comparison.totalDeltaPercentage)}% ${
+              comparison.totalDeltaCents >= 0 ? "higher" : "lower"
+            } than ${comparison.compareTrip.destination}`}
+          />
+          <DeltaCard
+            label="Daily difference"
+            value={comparison.dailyDeltaCents}
+            helper={`Cost per day changed against ${comparison.compareTrip.destination}`}
+          />
+
+          <div className="rounded-lg bg-base-200/65 p-4 md:col-span-2">
+            <p className="metric-label">Largest category movement</p>
+            <div className="mt-4 grid gap-3 md:grid-cols-2">
+              {strongestDeltas.map((delta) => (
+                <div className="rounded-lg bg-white/70 p-3" key={delta.categoryId}>
+                  <div className="mb-2 flex items-center justify-between gap-3">
+                    <span className="font-medium">{delta.label}</span>
+                    <span
+                      className={
+                        delta.deltaCents >= 0 ? "text-secondary" : "text-primary"
+                      }
+                    >
+                      {formatSignedMoney(delta.deltaCents)}
+                    </span>
+                  </div>
+                  <div className="h-2 rounded-lg bg-base-300">
+                    <div
+                      className="h-2 rounded-lg"
+                      style={{
+                        width: `${Math.min(100, Math.max(8, Math.abs(delta.deltaPercentage)))}%`,
+                        backgroundColor: delta.color,
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DeltaCard({
+  label,
+  value,
+  helper,
+}: {
+  label: string;
+  value: number;
+  helper: string;
+}) {
+  return (
+    <div className="rounded-lg bg-base-200/65 p-4">
+      <p className="metric-label">{label}</p>
+      <p
+        className={`mt-2 text-3xl font-semibold ${
+          value >= 0 ? "text-secondary" : "text-primary"
+        }`}
+      >
+        {formatSignedMoney(value)}
+      </p>
+      <p className="mt-2 text-sm leading-6 text-base-content/62">{helper}</p>
+    </div>
+  );
+}
+
+function formatSignedMoney(amountCents: number) {
+  const prefix = amountCents > 0 ? "+" : amountCents < 0 ? "-" : "";
+  return `${prefix}${formatMoney(Math.abs(amountCents))}`;
 }
 
 function CategoryBreakdown({ trips }: { trips: Trip[] }) {
