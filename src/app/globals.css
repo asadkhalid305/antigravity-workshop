@@ -1,26 +1,91 @@
 @import "tailwindcss";
+@plugin "daisyui" {
+  themes: triplens --default;
+}
+
+@plugin "daisyui/theme" {
+  name: "triplens";
+  default: true;
+  color-scheme: light;
+
+  --color-base-100: #f7fbfb;
+  --color-base-200: #edf6f5;
+  --color-base-300: #d7e9e7;
+  --color-base-content: #163238;
+  --color-primary: #2f7f86;
+  --color-primary-content: #ffffff;
+  --color-secondary: #f28f7c;
+  --color-secondary-content: #311a14;
+  --color-accent: #68b7a4;
+  --color-accent-content: #082f2a;
+  --color-neutral: #24464d;
+  --color-neutral-content: #f7fbfb;
+  --color-info: #5aa9d6;
+  --color-info-content: #08243a;
+  --color-success: #5fbf9a;
+  --color-success-content: #063025;
+  --color-warning: #f4c66d;
+  --color-warning-content: #332405;
+  --color-error: #e56f6f;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7fbfb;
+  --foreground: #163238;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: #ffffff;
+  --border-soft: rgba(47, 127, 134, 0.14);
+  --shadow-soft: 0 18px 60px rgba(33, 74, 83, 0.12);
+  --shadow-card: 0 10px 30px rgba(33, 74, 83, 0.1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+.app-shell {
+  background:
+    radial-gradient(circle at top left, rgba(104, 183, 164, 0.22), transparent 34rem),
+    radial-gradient(circle at bottom right, rgba(242, 143, 124, 0.18), transparent 32rem),
+    linear-gradient(135deg, #f7fbfb 0%, #eef8f7 48%, #f9f7f2 100%);
+}
+
+.floating-panel {
+  border: 1px solid var(--border-soft);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
+}
+
+.floating-card {
+  border: 1px solid var(--border-soft);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.metric-label {
+  color: rgba(22, 50, 56, 0.62);
+  font-size: 0.76rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
