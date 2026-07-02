@@ -31,8 +31,6 @@ import {
   BarChart,
   CartesianGrid,
   Cell,
-  Pie,
-  PieChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -668,27 +666,37 @@ function CategoryBreakdown({ trips }: { trips: Trip[] }) {
         </div>
         <WalletCards className="size-5 text-primary" aria-hidden="true" />
       </div>
-      <div className="mt-5 h-64" aria-label="Category spending donut chart">
+      <div className="mt-5 h-72" aria-label="Category spending bar chart">
         <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
-            <Pie
-              data={chartData}
-              dataKey="value"
-              innerRadius="58%"
-              outerRadius="82%"
-              paddingAngle={3}
-              stroke="rgba(255,255,255,0.9)"
-              strokeWidth={4}
-            >
-              {chartData.map((entry) => (
-                <Cell fill={entry.color} key={entry.name} />
-              ))}
-            </Pie>
+          <BarChart
+            data={chartData}
+            layout="vertical"
+            margin={{ top: 4, right: 10, left: 6, bottom: 4 }}
+          >
+            <CartesianGrid horizontal={false} stroke="rgba(47, 127, 134, 0.12)" />
+            <XAxis hide type="number" />
+            <YAxis
+              axisLine={false}
+              dataKey="name"
+              tickLine={false}
+              tick={{ fill: "#47666b", fontSize: 12 }}
+              type="category"
+              width={86}
+            />
             <Tooltip
               formatter={(value) => formatMoney(Number(value))}
               labelFormatter={(label) => String(label)}
             />
-          </PieChart>
+            <Bar
+              dataKey="value"
+              radius={[0, 8, 8, 0]}
+              barSize={18}
+            >
+              {chartData.map((entry) => (
+                <Cell fill={entry.color} key={entry.name} />
+              ))}
+            </Bar>
+          </BarChart>
         </ResponsiveContainer>
       </div>
 
