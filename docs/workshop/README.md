@@ -20,7 +20,6 @@ missing from `00-unprepared-agent`:
 - Rules in `.agent/rules/` define always-on boundaries.
 - Workflows in `.agent/workflows/` define repeatable routines.
 - Skills in `.agents/skills/` provide deeper reusable task knowledge.
-- Agents in `.agents/agents/` provide specialist review perspectives.
 
 For the `00` versus `01` comparison, run the same plain prompt on both branches.
 Do not invoke workflows yet. The goal is to see whether ambient project context

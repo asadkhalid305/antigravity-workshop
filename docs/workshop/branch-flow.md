@@ -16,7 +16,7 @@ Use a broad prompt such as "make this post-trip insights app more useful".
 
 ## `01-agent-context`
 
-Purpose: show that rules, workflows, skills, and agent config reduce guessing.
+Purpose: show that rules, workflows, and skills reduce guessing.
 
 Expected shape: same useful app surface as `00`, but restore context files and
 ask the agent to inspect them before making a similarly broad improvement.
@@ -30,10 +30,11 @@ bounded comparison feature.
 
 ## `03-inspect-and-verify`
 
-Purpose: inspect a diff and verify behavior with checks.
+Purpose: introduce specialist review agents and verify behavior with checks.
 
-Expected shape: include a small intentional calculation or UI bug around trip
-totals, daily cost, yearly totals, or comparison deltas.
+Expected shape: include custom review/test agents plus a small intentional
+calculation bug around per-day trip cost. Review the branch like a PR before
+editing.
 
 ## `04-external-context-mcp`
 

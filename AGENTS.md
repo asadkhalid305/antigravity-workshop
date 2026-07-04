@@ -34,7 +34,6 @@ workshop:
   verifying changes.
 - `.agents/skills/`: deeper reusable guidance for feature work, UI/forms, and
   review.
-- `.agents/agents/`: specialist perspectives for UI, testing, and final review.
 
 `AGENTS.md` is only the orientation layer. Detailed rules and workflows live in
 their dedicated files so the same instruction is not maintained in two places.
