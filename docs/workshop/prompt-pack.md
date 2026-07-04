@@ -23,7 +23,7 @@ Observe:
 ### Prompt 01A: Inspect Context
 
 ```txt
-Inspect the project context files first. Summarize the product rules, workflow, skills, and boundaries that should guide your work. Do not edit files.
+Inspect the local context files in this project. Summarize what the rules, workflows, skills, and agents are meant to do for TripLens. Do not edit files.
 ```
 
 ### Prompt 01B: Repeat The Improvement
@@ -37,6 +37,7 @@ Observe:
 - Is the change narrower than in branch 00?
 - Did it avoid live finance, bank, OCR, auth, and database features?
 - Did it preserve visual and calculation conventions?
+- Did rules, skills, agents, or workflows appear to influence the result?
 
 ## `02-plan-before-editing`
 

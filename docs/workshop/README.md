@@ -12,6 +12,20 @@ clear teaching surface.
 - `branch-flow.md`: checkpoint branch purpose and expected app shape.
 - `prompt-pack.md`: copy-ready prompts for the workshop exercises.
 
+## Context Stack In `01-agent-context`
+
+The `01-agent-context` branch demonstrates the local context layer that is
+missing from `00-unprepared-agent`:
+
+- Rules in `.agent/rules/` define always-on boundaries.
+- Workflows in `.agent/workflows/` define repeatable routines.
+- Skills in `.agents/skills/` provide deeper reusable task knowledge.
+- Agents in `.agents/agents/` provide specialist review perspectives.
+
+For the `00` versus `01` comparison, run the same plain prompt on both branches.
+Do not invoke workflows yet. The goal is to see whether ambient project context
+changes the output.
+
 ## Teaching Spine
 
 ```txt
