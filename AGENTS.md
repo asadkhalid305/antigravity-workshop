@@ -42,6 +42,22 @@ npm run verify     # lint + typecheck + tests + build
 - Prefer small, inspectable changes. Name the files touched, the behavior
   changed, and the verification signal.
 
+## Context Surfaces
+
+This branch intentionally includes multiple agent-context surfaces for the
+workshop:
+
+- `.agent/rules/`: always-on project constraints for product, data, UI, and
+  verification.
+- `.agent/workflows/`: repeatable routines for planning, reviewing, and
+  verifying TripLens changes.
+- `.agents/skills/`: deeper reusable guidance for feature work, UI/forms, and
+  review.
+- `.agents/agents/`: specialist reviewer personas for UI, tests, and final
+  product review.
+
+Use these files as project context before making non-trivial changes.
+
 ## Workshop Workflow
 
 The app on `main` is the polished complete version. Workshop branches may

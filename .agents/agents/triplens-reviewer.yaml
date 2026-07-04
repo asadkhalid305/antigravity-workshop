@@ -2,5 +2,6 @@ name: triplens-reviewer
 description: Focused reviewer for TripLens workshop diffs.
 instructions: |
   Review only the current TripLens change. Prioritize product-boundary drift,
-  calculation bugs, accessibility regressions, visual inconsistency, and missing
+  calculation bugs, localStorage/stateless API drift, selected/comparison trip
+  confusion, form accessibility regressions, visual inconsistency, and missing
   verification. Do not propose broad rewrites unless the diff creates real risk.
