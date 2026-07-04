@@ -24,56 +24,22 @@ npm run build      # Production build
 npm run verify     # lint + typecheck + tests + build
 ```
 
-## Project Rules
-
-- Keep the app post-trip only. Do not add bank accounts, live transaction
-  syncing, OCR, receipt upload, auth, database storage, exchange-rate APIs, or
-  budget warnings unless a task explicitly asks for that future product work.
-- Client edits persist in `localStorage`. Route handlers are stateless mock APIs
-  for workshop realism and Vercel compatibility.
-- Store money as integer cents in domain logic. Format display values at the UI
-  edge with `Intl.NumberFormat`.
-- Keep seed data fictional and realistic. Do not add real personal travel data.
-- Preserve the light, spacious, mobile-first visual direction: pale sky/mint
-  base, restrained coral/blue accents, floating panels, soft shadows, and
-  8px-ish radii.
-- Charts use Recharts. Each chart should have nearby text/list summaries so the
-  insight is not color-only.
-- Prefer small, inspectable changes. Name the files touched, the behavior
-  changed, and the verification signal.
-
 ## Context Surfaces
 
 This branch intentionally includes multiple agent-context surfaces for the
 workshop:
 
-- `.agent/rules/`: always-on project constraints for product, data, UI, and
-  verification.
+- `.agent/rules/`: always-on product, data, UI, and verification constraints.
 - `.agent/workflows/`: repeatable routines for planning, reviewing, and
-  verifying TripLens changes.
+  verifying changes.
 - `.agents/skills/`: deeper reusable guidance for feature work, UI/forms, and
   review.
-- `.agents/agents/`: specialist reviewer personas for UI, tests, and final
-  product review.
+- `.agents/agents/`: specialist perspectives for UI, testing, and final review.
 
-Use these files as project context before making non-trivial changes.
+`AGENTS.md` is only the orientation layer. Detailed rules and workflows live in
+their dedicated files so the same instruction is not maintained in two places.
 
 ## Workshop Workflow
 
 The app on `main` is the polished complete version. Workshop branches may
 remove, add, or alter code to create exercise scenarios.
-
-Before editing:
-
-1. Inspect the current branch and relevant files.
-2. Restate the product boundary and intended change.
-3. Propose a small plan for non-trivial tasks.
-4. Name verification steps before implementation.
-
-After editing:
-
-1. Explain the diff at behavior level.
-2. Run the narrowest useful check first.
-3. Run `npm run verify` before commit, release, or branch handoff.
-4. Do not commit `.env*`, `.vercel/`, `.next/`, `node_modules/`, screenshots,
-   or generated build output.
