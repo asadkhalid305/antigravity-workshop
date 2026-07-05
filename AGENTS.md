@@ -34,14 +34,13 @@ workshop:
   verifying changes.
 - `.agents/skills/`: deeper reusable guidance for feature work, UI/forms, and
   review.
+- `.agents/plugins/` and `.agents/mcp_config.json`: exercise-specific extension
+  surfaces used by later workshop branches.
+- `.agents/settings.json`: project-level Antigravity permission settings.
 
 `AGENTS.md` is only the orientation layer. Detailed rules and workflows live in
 their dedicated files so the same instruction is not maintained in two places.
-
-Starting with the `03-inspect-and-verify` exercise, the
-`.agents/plugins/triplens-pr-review/` plugin adds a custom pull-request
-reviewer agent and supporting skills as a separate inspection surface. The
-plugin is not part of the basic context comparison in `01-agent-context`.
+Workshop branch purposes live in `docs/workshop/branch-flow.md`.
 
 ## Workshop Workflow
 

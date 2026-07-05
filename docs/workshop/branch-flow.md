@@ -40,10 +40,15 @@ PR, draft review comments, and post only after approval.
 
 ## `04-external-context-mcp`
 
-Purpose: show when external documentation changes answer quality.
+Purpose: show that MCP lets an agent connect to external context beyond the
+repository.
 
-Expected shape: keep chart/form accessibility questions visible. Use external
-docs for accessible charts, forms, or currency formatting.
+Expected shape: add `.agents/mcp_config.json` with Context7 and Chrome
+DevTools MCP servers for Google Antigravity. Use Chrome DevTools as the primary
+live demo for inspecting the local TripLens app in a browser. The comparison
+panel includes a prepared `Refresh API comparison` action that produces a
+diagnosable failed network request. Context7 is a shorter optional docs demo for
+current package guidance.
 
 ## `05-automation-and-surfaces`
 

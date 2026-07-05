@@ -29,6 +29,16 @@ The `.agents/plugins/triplens-pr-review/` plugin is introduced later in
 `03-inspect-and-verify`, where its reviewer agent and supporting skills act as
 a PR-style inspection surface.
 
+The `.agents/mcp_config.json` MCP configuration is introduced in
+`04-external-context-mcp` as the Google Antigravity-facing workshop artifact.
+It intentionally includes two different MCP styles: Context7 for external
+documentation and Chrome DevTools for live browser inspection.
+
+In Antigravity, the active raw MCP config is managed from the MCP Servers UI
+and stored globally under the user's Gemini/Antigravity config directory. This
+repo file exists so attendees can inspect the exact servers for this branch and
+copy the `mcpServers` block into Antigravity when needed.
+
 ## Teaching Spine
 
 ```txt

@@ -43,12 +43,23 @@ type TripDashboardProps = {
 
 const STORAGE_KEY = "triplens.trips.v1";
 
+type ApiComparisonStatus =
+  | { state: "idle"; message: string }
+  | { state: "loading"; message: string }
+  | { state: "success"; message: string }
+  | { state: "error"; message: string };
+
 export function TripDashboard({ initialTrips }: TripDashboardProps) {
   const [trips, setTrips] = useState(initialTrips);
   const [selectedTripId, setSelectedTripId] = useState(initialTrips[0]?.id);
   const [isLoaded, setIsLoaded] = useState(false);
   const [editingTrip, setEditingTrip] = useState<Trip | null>(null);
   const [isAddingTrip, setIsAddingTrip] = useState(false);
+  const [apiComparisonStatus, setApiComparisonStatus] =
+    useState<ApiComparisonStatus>({
+      state: "idle",
+      message: "Use the API refresh to inspect this interaction in DevTools.",
+    });
 
   useEffect(() => {
     queueMicrotask(() => {
@@ -186,7 +197,45 @@ export function TripDashboard({ initialTrips }: TripDashboardProps) {
 
         {comparison && (
           <TripComparisonPanel
+            apiStatus={apiComparisonStatus}
             comparison={comparison}
+            onRefreshComparison={async () => {
+              if (!compareTripId) {
+                return;
+              }
+
+              setApiComparisonStatus({
+                state: "loading",
+                message: "Refreshing comparison through the API...",
+              });
+
+              const response = await fetch("/api/insights/compare", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  baseTripId: currentTrip.id,
+                  compareWithTripId: compareTripId,
+                }),
+              });
+              const payload = await response.json();
+
+              if (!response.ok) {
+                console.warn("TripLens API comparison refresh failed", {
+                  payload,
+                  status: response.status,
+                });
+                setApiComparisonStatus({
+                  state: "error",
+                  message: `API refresh failed with ${response.status}. Inspect the Network request body and response.`,
+                });
+                return;
+              }
+
+              setApiComparisonStatus({
+                state: "success",
+                message: "API comparison refreshed successfully.",
+              });
+            }}
             onSelectCompareTrip={setSelectedCompareTripId}
             selectedCompareTripId={compareTripId}
             trips={trips}
@@ -521,12 +570,16 @@ function TripForm({
 }
 
 function TripComparisonPanel({
+  apiStatus,
   comparison,
+  onRefreshComparison,
   trips,
   selectedCompareTripId,
   onSelectCompareTrip,
 }: {
+  apiStatus: ApiComparisonStatus;
   comparison: ReturnType<typeof buildTripComparison>;
+  onRefreshComparison: () => Promise<void>;
   trips: Trip[];
   selectedCompareTripId?: string;
   onSelectCompareTrip: (tripId: string) => void;
@@ -567,6 +620,27 @@ function TripComparisonPanel({
                 ))}
             </select>
           </label>
+
+          <div className="mt-4 rounded-lg bg-base-200/65 p-3">
+            <button
+              className="btn btn-outline btn-sm rounded-lg"
+              disabled={apiStatus.state === "loading"}
+              onClick={onRefreshComparison}
+              type="button"
+            >
+              {apiStatus.state === "loading" ? "Refreshing..." : "Refresh API comparison"}
+            </button>
+            <p
+              className={`mt-3 text-sm leading-6 ${
+                apiStatus.state === "error"
+                  ? "text-error"
+                  : "text-base-content/62"
+              }`}
+              role="status"
+            >
+              {apiStatus.message}
+            </p>
+          </div>
         </div>
 
         <div className="grid gap-3 md:grid-cols-2">

@@ -1,0 +1,14 @@
+{
+    "enableTerminalSandbox": true,
+    "toolPermission": "proceed-in-sandbox",
+    "permissions": {
+        "allow": [
+            "command(git status)",
+            "command(git remote)",
+            "command(gh pr view)",
+            "command(gh pr diff)",
+            "command(gh pr checks)",
+            "command(npm run test)"
+        ]
+    }
+}

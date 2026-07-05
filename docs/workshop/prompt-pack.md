@@ -81,16 +81,30 @@ The proposed review comments look good. Post them on the PR.
 
 ## `04-external-context-mcp`
 
-### Prompt 04A: Local Context Only
+### Prompt 04A: Inspect The Running App With Chrome DevTools
 
 ```txt
-Explain how we should make the chart and form interactions more accessible in this app. Use only local project files. Do not edit files.
+Start the TripLens dev server if needed. Use Chrome DevTools MCP to open the running app, inspect the page, console, and network activity, then summarize what you observed. Do not edit files.
 ```
 
-### Prompt 04B: With External Context
+### Prompt 04B: Debug The API Comparison Request
 
 ```txt
-Use the available external documentation context to check whether our chart and form patterns follow current accessibility guidance. Summarize only practical changes for this app.
+Use Chrome DevTools MCP to click "Refresh API comparison" in TripLens. Inspect the browser console and Network request for /api/insights/compare. Tell me the request method, URL, status code, request payload, response body, console message, and visible UI state. Do not edit files.
+```
+
+### Prompt 04C: Fetch Package Docs With Context7
+
+```txt
+Use Context7 MCP to fetch current documentation for Recharts. Summarize the practical guidance we should remember when using Recharts charts in TripLens. Do not edit files.
+```
+
+### Prompt 04D: Fix After Evidence
+
+Use only if the facilitator wants to show the complete debug-to-fix loop.
+
+```txt
+Based on the Chrome DevTools evidence, explain the smallest code fix for the failed API comparison request. Wait for approval before editing files.
 ```
 
 ## `05-automation-and-surfaces`
