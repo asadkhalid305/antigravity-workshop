@@ -1,9 +1,9 @@
 ---
-name: triplens-pr-review-conventions
-description: Review TripLens pull requests for product boundary, calculation safety, and focused verification.
+name: triplens-review-checklist
+description: Check TripLens pull requests against product, data, UI, and verification expectations.
 ---
 
-# TripLens PR Review Conventions
+# TripLens Review Checklist
 
 Use this skill when reviewing a TripLens pull request or branch diff.
 
@@ -16,7 +16,7 @@ Use this skill when reviewing a TripLens pull request or branch diff.
 5. Mobile-first dashboard, chart, and form readability.
 6. Product boundary: post-trip insights only, no live finance or bank features.
 
-## Review Output
+## Review Behavior
 
 Lead with findings, ordered by severity. For each finding, name the file,
 behavior, and verification signal. If there are no findings, say that clearly
@@ -24,3 +24,7 @@ and note any remaining test or browser-verification gap.
 
 For calculation changes, start with `npm run test`. Do not edit files until the
 user asks for a fix.
+
+Do not recommend live finance features, bank integrations, auth, databases,
+receipt scanning, exchange-rate APIs, or broad redesigns unless the PR already
+touches that scope and the issue is directly relevant.

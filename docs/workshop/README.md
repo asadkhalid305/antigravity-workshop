@@ -26,8 +26,8 @@ Do not invoke workflows yet. The goal is to see whether ambient project context
 changes the output.
 
 The `.agents/plugins/triplens-pr-review/` plugin is introduced later in
-`03-inspect-and-verify`, where its custom agents and skills act as specialist
-surfaces for a PR-style inspection.
+`03-inspect-and-verify`, where its reviewer agent and supporting skills act as
+a PR-style inspection surface.
 
 ## Teaching Spine
 

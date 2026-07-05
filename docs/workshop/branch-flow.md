@@ -30,11 +30,11 @@ bounded comparison feature.
 
 ## `03-inspect-and-verify`
 
-Purpose: introduce a pull-request review plugin with specialist review agents
-and verify behavior with checks.
+Purpose: introduce a pull-request review plugin with one custom reviewer agent
+and supporting review skills.
 
 Expected shape: include the `.agents/plugins/triplens-pr-review/` plugin
-folder, PR inspection/review skills, custom review agents, and a small
+folder, PR inspection/checklist skills, one custom reviewer agent, and a small
 intentional calculation bug around per-day trip cost. Review the branch like a
 PR before editing.
 

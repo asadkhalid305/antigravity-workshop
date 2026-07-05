@@ -39,9 +39,9 @@ workshop:
 their dedicated files so the same instruction is not maintained in two places.
 
 Starting with the `03-inspect-and-verify` exercise, the
-`.agents/plugins/triplens-pr-review/` plugin adds custom pull-request review
-agents as a separate inspection surface. The plugin and its agents are not part
-of the basic context comparison in `01-agent-context`.
+`.agents/plugins/triplens-pr-review/` plugin adds a custom pull-request
+reviewer agent and supporting skills as a separate inspection surface. The
+plugin is not part of the basic context comparison in `01-agent-context`.
 
 ## Workshop Workflow
 
