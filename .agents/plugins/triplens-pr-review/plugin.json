@@ -1,0 +1,5 @@
+{
+  "name": "triplens-pr-review",
+  "version": "1.0.0",
+  "description": "Workshop plugin for reviewing TripLens GitHub pull requests before fixes."
+}

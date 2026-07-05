@@ -40,7 +40,9 @@ export function getTripTotalCents(trip: Trip) {
 }
 
 export function getTripDailyCents(trip: Trip) {
-  return Math.round(getTripTotalCents(trip) / getTripDurationDays(trip));
+  return Math.round(
+    getTripTotalCents(trip) / Math.max(1, getTripDurationDays(trip) - 1),
+  );
 }
 
 export function getTotalSpentCents(trips: Trip[]) {

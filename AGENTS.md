@@ -29,8 +29,8 @@ npm run verify     # lint + typecheck + tests + build
 This branch intentionally includes multiple agent-context surfaces for the
 workshop:
 
-- `.agent/rules/`: always-on product, data, UI, and verification constraints.
-- `.agent/workflows/`: repeatable routines for planning, reviewing, and
+- `.agents/rules/`: always-on product, data, UI, and verification constraints.
+- `.agents/workflows/`: repeatable routines for planning, reviewing, and
   verifying changes.
 - `.agents/skills/`: deeper reusable guidance for feature work, UI/forms, and
   review.
@@ -38,9 +38,10 @@ workshop:
 `AGENTS.md` is only the orientation layer. Detailed rules and workflows live in
 their dedicated files so the same instruction is not maintained in two places.
 
-Starting with the `03-inspect-and-verify` exercise, custom agents are used as a
-separate review surface. They are not part of the basic context comparison in
-`01-agent-context`.
+Starting with the `03-inspect-and-verify` exercise, the
+`.agents/plugins/triplens-pr-review/` plugin adds a custom pull-request
+reviewer agent and supporting skills as a separate inspection surface. The
+plugin is not part of the basic context comparison in `01-agent-context`.
 
 ## Workshop Workflow
 
