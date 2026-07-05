@@ -13,9 +13,9 @@ charts, calculations, or persistence.
 Useful files:
 
 - `AGENTS.md`
-- `.agent/rules/product-boundary.md`
-- `.agent/rules/data-contract.md`
-- `.agent/rules/ui-quality.md`
-- `.agent/rules/verification.md`
+- `.agents/rules/product-boundary.md`
+- `.agents/rules/data-contract.md`
+- `.agents/rules/ui-quality.md`
+- `.agents/rules/verification.md`
 - `src/components/trip-dashboard.tsx`
 - `src/lib/triplens/`

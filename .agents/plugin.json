@@ -1,0 +1,15 @@
+{
+  "name": "triplens-git-github",
+  "version": "1.0.0",
+  "description": "Workshop plugin surface for TripLens Git and GitHub PR review.",
+  "surfaces": {
+    "agents": [
+      "triplens-pr-reviewer",
+      "triplens-test-engineer",
+      "triplens-ui-designer"
+    ],
+    "skills": [
+      "triplens-git-github"
+    ]
+  }
+}
