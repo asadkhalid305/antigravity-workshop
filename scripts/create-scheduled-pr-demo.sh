@@ -42,7 +42,7 @@ title="docs: add scheduled automation demo note (${demo_id})"
 body="Demo PR for the scheduled automation workshop exercise.
 
 This PR exists so the scheduled CLI automation has fresh GitHub activity to inspect."
-comment="Please confirm this demo stays focused on CLI scheduling and does not require Antigravity 2.0."
+comment="Please confirm this demo stays focused on CLI scheduling and hooks."
 
 git switch -c "$branch_name"
 

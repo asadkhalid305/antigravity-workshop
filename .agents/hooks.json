@@ -1,0 +1,16 @@
+{
+  "scheduled-pr-readonly-guard": {
+    "PreToolUse": [
+      {
+        "matcher": "run_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ../scripts/hooks/scheduled-pr-readonly-guard.mjs",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

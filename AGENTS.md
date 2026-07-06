@@ -34,6 +34,8 @@ workshop:
   verifying changes.
 - `.agents/skills/`: deeper reusable guidance for feature work, UI/forms, and
   review.
+- `.agents/hooks.json`: deterministic lifecycle guardrails for scheduled
+  automation demos.
 - `.agents/plugins/` and `.agents/mcp_config.json`: exercise-specific extension
   surfaces used by later workshop branches.
 - `.agents/settings.json`: project-level Antigravity permission settings.

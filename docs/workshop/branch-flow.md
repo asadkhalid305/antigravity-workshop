@@ -50,17 +50,19 @@ panel includes a prepared `Refresh API comparison` action that produces a
 diagnosable failed network request. Context7 is a shorter optional docs demo for
 current package guidance.
 
-## `05-automation-and-surfaces`
+## `05-automation-and-hooks`
 
 Purpose: show that CLI scheduling can turn a repeated, bounded agent task into
-an automation.
+an automation, and that hooks can add deterministic guardrails around that
+automation.
 
 Expected shape: same as `04`, with the GitHub/PR review context still available.
 Use a short recurring schedule during the live demo to generate a PR triage
 brief: list open PRs, summarize review comments, check status, identify actions,
 and suggest replies. Include a helper script for creating unique demo PR
-activity, plus manual fallback commands. Explain that a real team would usually
-schedule this daily, not every few minutes.
+activity, plus manual fallback commands. Add a workspace-level hook that blocks
+mutating GitHub/git commands from the scheduled read-only task. Explain that a
+real team would usually schedule this daily, not every few minutes.
 
 ## `06-command-showcase`
 
