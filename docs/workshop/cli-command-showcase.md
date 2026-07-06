@@ -13,22 +13,101 @@ developer would use it, then move on.
 
 ## Recommended Live Demo
 
-Prioritize these if time is short.
+Prioritize commands that change how a developer works while coding. Keep shell
+help, version, and model commands as quick orientation only.
 
-1. Show shell help and version-aware discovery.
+1. Quick orientation.
 
 ```bash
 agy --version
 agy --help
 agy models
-agy changelog
 agy plugin help
 ```
 
-Teaching point: shell commands answer "how do I launch or manage the CLI?" They
-are different from slash commands typed after the TUI starts.
+Teaching point: this is how to discover the installed surface. Do not spend
+long here; the more valuable demo is the in-session workflow commands.
 
-2. Show one-shot non-interactive prompting.
+2. Use `/grill-me` before planning a feature.
+
+Inside the TUI:
+
+```txt
+/grill-me We are considering a small TripLens improvement: make the trip comparison panel easier for workshop attendees to verify. Interview me until the scope, non-goals, data constraints, UI expectations, and verification approach are clear. Do not edit files.
+```
+
+Teaching point: `/grill-me` turns vague intent into better requirements before
+the agent spends tokens on a plan or implementation.
+
+3. Use `/learn` after a correction.
+
+First give the agent a correction:
+
+```txt
+Correction for this project: TripLens is a post-trip insight app. When planning or reviewing changes, do not suggest budgeting, live expense tracking, bank integrations, OCR receipt capture, or financial advice.
+```
+
+Then run:
+
+```txt
+/learn
+```
+
+Teaching point: `/learn` is not for doing the current task. It turns a useful
+correction, success, or repeated preference from the conversation into reusable
+future guidance. Treat it as durable memory: do not store secrets, temporary
+facts, or one-off workshop noise.
+
+4. Use `/goal` to show the agent loop.
+
+```txt
+/goal Inspect this branch's workshop docs and produce a no-edit verification brief for the branch 06 command showcase. Confirm which commands are prioritized for live demo, which are take-home only, and what checks remain before presenting. Do not edit files. Stop when the brief is complete.
+```
+
+Then inspect:
+
+```txt
+/tasks
+```
+
+Teaching point: `/goal` is for a bounded end state where the agent can keep
+working through the loop until the result is complete. `/tasks` shows the
+background or longer-running work created by that loop.
+
+5. Show branch and recovery controls.
+
+Inside the TUI, use `/help` first to confirm exact names in the installed
+version, then demo or mention:
+
+```txt
+/fork
+/rewind
+```
+
+Teaching point: `/fork` lets you explore an alternate conversation direction
+without overwriting the current path. `/rewind` is for recovering from a bad
+turn or overly broad response.
+
+6. Show active work and inspection surfaces.
+
+Inside the TUI:
+
+```txt
+/agents
+/tasks
+/diff
+/add-dir
+/usage
+/credits
+```
+
+Teaching point: these are development controls. `/agents` shows active
+subagents, not every possible custom agent. `/tasks` shows background work.
+`/diff` makes changes inspectable. `/add-dir` extends the workspace when a task
+needs another local repo or docs folder. `/usage` and `/credits` make cost and
+quota visible.
+
+7. Show one-shot non-interactive prompting if time remains.
 
 ```bash
 agy -p "Inspect this repository and list the top 3 command-line surfaces a developer should know. Do not edit files."
@@ -38,7 +117,7 @@ agy --print-timeout 10m -p "Summarize the TripLens workshop branch sequence from
 Teaching point: `-p`, `--print`, and `--prompt` are useful for scripts, CI-like
 summaries, and quick read-only checks without opening the full TUI.
 
-3. Show launch-time safety modes.
+8. Show launch-time safety modes as a warning.
 
 ```bash
 agy --sandbox
@@ -49,47 +128,6 @@ agy --sandbox --dangerously-skip-permissions
 Teaching point: `--sandbox` restricts terminal execution;
 `--dangerously-skip-permissions` removes approval prompts. Demo the risk
 clearly: skip permissions only belongs in a trusted repo and a bounded task.
-
-4. Show project context and permissions.
-
-Inside the TUI:
-
-```txt
-/help
-/context
-/permissions
-/settings
-```
-
-Teaching point: branch `05` introduced `.agents/settings.json`, so branch `06`
-can show how settings and permissions are inspected and adjusted from the CLI.
-
-5. Show continuity commands.
-
-Inside the TUI:
-
-```txt
-/resume
-/tasks
-/goal
-```
-
-Teaching point: these commands are for staying with longer work: resume old
-conversations, inspect background tasks, or ask the agent to keep going until a
-goal is genuinely complete.
-
-6. Show branch-safe exploration if available in the current CLI.
-
-Inside the TUI, use `/help` first to confirm exact names in the installed
-version, then demo:
-
-```txt
-/fork
-/rewind
-```
-
-Teaching point: these are useful when you want to compare directions or recover
-from a bad turn without manually reconstructing the conversation.
 
 ## Take-Home Command Checklist
 
@@ -176,10 +214,12 @@ live-demo candidates:
 Do not try to run every item live. The live goal is to teach the map:
 
 - shell flags change how a session starts;
-- slash commands operate inside the session;
+- `/grill-me`, `/learn`, and `/goal` change the development workflow;
+- `/fork`, `/rewind`, `/agents`, and `/tasks` help control longer work;
+- other slash commands operate inside the session;
 - settings and keybindings persist preferences;
 - permissions and sandboxing are separate safety layers.
 
-If time runs out, show `agy --help`, one `agy -p` example, `/help`,
-`/permissions`, and the project `.agents/settings.json`, then tell attendees the
-rest is in the prompt pack.
+If time runs out, show `/grill-me`, `/learn`, `/goal`, `/tasks`, and one quick
+look at `/fork` or `/rewind`, then tell attendees the rest is in the prompt
+pack.

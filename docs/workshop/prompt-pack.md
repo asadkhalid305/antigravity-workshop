@@ -169,7 +169,7 @@ The live goal is to show the command surface, not to implement a new TripLens
 feature. The full trainer checklist is in
 `docs/workshop/cli-command-showcase.md`.
 
-### Prompt 06A: Discover The Installed CLI
+### Prompt 06A: Quick Discovery
 
 ```bash
 agy --version
@@ -183,10 +183,115 @@ Observe:
 
 - Which options are launch flags?
 - Which commands are shell subcommands?
-- Which features were added recently enough that `/help` should be trusted over
-  memory?
+- Do not spend long here. These are orientation commands.
 
-### Prompt 06B: Run A One-Shot Prompt
+### Prompt 06B: Grill Me Before Planning
+
+```txt
+/grill-me We are considering a small TripLens improvement: make the trip comparison panel easier for workshop attendees to verify. Interview me until the scope, non-goals, data constraints, UI expectations, and verification approach are clear. Do not edit files.
+```
+
+Observe:
+
+- Does the command ask clarifying questions instead of jumping to a solution?
+- Does it expose assumptions about TripLens, verification, and scope?
+- This is useful before planning a feature, not after implementation has begun.
+
+### Prompt 06C: Learn A Durable Correction
+
+First give the correction:
+
+```txt
+Correction for this project: TripLens is a post-trip insight app. When planning or reviewing changes, do not suggest budgeting, live expense tracking, bank integrations, OCR receipt capture, or financial advice.
+```
+
+Then run:
+
+```txt
+/learn
+```
+
+Observe:
+
+- `/learn` is for turning a useful correction, success, or repeated preference
+  into reusable future guidance.
+- It is not for completing the current task.
+- Do not store secrets, temporary facts, or one-off workshop noise.
+
+### Prompt 06D: Goal And Agent Loop
+
+```txt
+/goal Inspect this branch's workshop docs and produce a no-edit verification brief for the branch 06 command showcase. Confirm which commands are prioritized for live demo, which are take-home only, and what checks remain before presenting. Do not edit files. Stop when the brief is complete.
+```
+
+Then inspect:
+
+```txt
+/tasks
+```
+
+Observe:
+
+- `/goal` gives the agent a bounded end state and lets it continue the loop
+  until done.
+- `/tasks` shows background or longer-running work.
+- A no-edit goal is safer for a live workshop than a goal that changes files.
+
+### Prompt 06E: Fork And Rewind
+
+Confirm exact names in `/help` first; command availability can change by CLI
+version.
+
+```txt
+/fork
+/rewind
+```
+
+Observe:
+
+- `/fork` is useful for trying an alternative direction without overwriting the
+  current one.
+- `/rewind` is useful when the conversation took a bad turn and you want to
+  continue from an earlier point.
+
+### Prompt 06F: Active Work And Inspection Commands
+
+```txt
+/agents
+/tasks
+/diff
+/add-dir
+/usage
+/credits
+```
+
+Observe:
+
+- `/agents` shows active subagents in the current conversation, not every
+  discoverable custom agent.
+- `/tasks` shows background work.
+- `/diff` makes changed files inspectable.
+- `/add-dir` lets the session include another local directory when needed.
+- `/usage` and `/credits` make cost and quota visible.
+
+### Prompt 06G: Context, Settings, And Permissions
+
+```txt
+/help
+/context
+/permissions
+/settings
+```
+
+Observe:
+
+- `/help` is the source of truth for slash commands and shortcuts in the
+  installed CLI.
+- `/context` shows what the agent is carrying.
+- `/permissions` maps to tool approval behavior.
+- `.agents/settings.json` demonstrates project-level settings in this repo.
+
+### Prompt 06H: One-Shot Prompt Mode
 
 ```bash
 agy -p "Inspect this repository and list the top 3 Antigravity CLI surfaces a developer should know. Do not edit files."
@@ -204,7 +309,7 @@ Observe:
 - The output can be copied into a PR note, script, or morning summary.
 - `--prompt` is an alias for `--print`; `-p` is the short form.
 
-### Prompt 06C: Launch With Different Safety Modes
+### Prompt 06I: Safety Modes
 
 Run these as a facilitator demo, not as a required attendee exercise.
 
@@ -221,83 +326,7 @@ Observe:
 - Combining them is still not a replacement for a trusted repo and a bounded
   task.
 
-### Prompt 06D: Start With An Interactive Prompt
-
-```bash
-agy -i "Show me the most important local context files for this TripLens workshop branch. Do not edit files."
-```
-
-Observe:
-
-- The first prompt is sent automatically.
-- The session stays open for follow-up questions.
-
-### Prompt 06E: Inspect Context, Settings, And Permissions
-
-```txt
-/help
-/context
-/permissions
-/settings
-```
-
-Observe:
-
-- `/help` is the source of truth for slash commands and shortcuts in the
-  installed CLI.
-- `/context` shows what the agent is carrying.
-- `/permissions` maps to tool approval behavior.
-- `.agents/settings.json` demonstrates project-level settings in this repo.
-
-### Prompt 06F: Goal And Background Work
-
-```txt
-/goal Make the trip comparison verification story clearer. Inspect the repo, propose the smallest useful documentation-only change, verify it, and stop only when the goal is complete.
-```
-
-Then inspect:
-
-```txt
-/tasks
-```
-
-Observe:
-
-- `/goal` is for longer autonomous work with a clear completion condition.
-- `/tasks` is where background activity is visible.
-
-### Prompt 06G: Scheduling Recap
-
-```txt
-/schedule every 2 minutes: Summarize the current Git status and the newest commit on this branch. Do not edit files, create commits, or push.
-```
-
-Observe:
-
-- This intentionally echoes branch `05`.
-- It helps attendees see `/schedule` as one slash command among the broader CLI
-  control surface.
-
-### Prompt 06H: Conversation Navigation
-
-Confirm exact names in `/help` first; command availability can change by CLI
-version.
-
-```txt
-/resume
-/fork
-/rewind
-```
-
-Observe:
-
-- `/resume` brings back prior conversations.
-- `/fork` is useful for trying an alternative direction without overwriting the
-  current one.
-- `/rewind` is useful when the conversation took a bad turn and you want to
-  continue from an earlier point.
-
-### Prompt 06I: Take-Home Checklist
+### Prompt 06J: Take-Home Checklist
 
 Try these after the workshop:
 

@@ -72,11 +72,12 @@ surface after the scheduling and hooks demo.
 
 Expected shape: same as `05`, with no extra app exercise required. Use
 `docs/workshop/cli-command-showcase.md` and the prompt pack to demonstrate
-launch flags such as `-p`, `--sandbox`, `--dangerously-skip-permissions`, and
-`--prompt-interactive`; shell subcommands such as `models`, `changelog`, and
-`plugin validate`; interactive slash commands such as `/help`, `/context`,
-`/permissions`, `/settings`, `/goal`, `/schedule`, `/resume`, `/tasks`, `/fork`,
-and `/rewind`; plus important shortcuts and settings files.
+developer workflow commands first: `/grill-me`, `/learn`, and `/goal`, followed
+by `/fork`, `/rewind`, `/agents`, `/tasks`, `/diff`, `/add-dir`, `/usage`, and
+`/credits`. Keep launch flags such as `-p`, `--sandbox`,
+`--dangerously-skip-permissions`, and `--prompt-interactive`; shell subcommands
+such as `models`, `changelog`, and `plugin validate`; and settings/shortcuts as
+quick-show or take-home material.
 
 Treat this as a time-filler branch. If time is short, demo only the prioritized
 commands and leave the full checklist for take-home practice.
