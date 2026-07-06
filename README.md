@@ -81,6 +81,7 @@ Official Antigravity links:
 ## Choose Your Path
 
 - Following the workshop live or self-paced: open [docs/workshop/guide.md](docs/workshop/guide.md).
+- Exploring Antigravity CLI commands: open [docs/workshop/cli-command-showcase.md](docs/workshop/cli-command-showcase.md).
 - Checking what each branch is for: open [docs/workshop/branch-flow.md](docs/workshop/branch-flow.md).
 
 The README gives the high-level map. The workshop guide gives the step-by-step commands, branch context, and prompts.
@@ -120,4 +121,5 @@ Replace the branch name with the active exercise.
 
 - [Workshop docs index](docs/workshop/README.md)
 - [Workshop guide](docs/workshop/guide.md)
+- [CLI command showcase](docs/workshop/cli-command-showcase.md)
 - [Checkpoint branch flow](docs/workshop/branch-flow.md)
