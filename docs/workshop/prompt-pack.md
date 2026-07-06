@@ -93,7 +93,7 @@ Explain how we should make the chart and form interactions more accessible in th
 Use the available external documentation context to check whether our chart and form patterns follow current accessibility guidance. Summarize only practical changes for this app.
 ```
 
-## `05-automation-and-surfaces`
+## `05-automation-and-hooks`
 
 ### Prompt 05A: Non-Interactive Quality Check
 

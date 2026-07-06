@@ -43,7 +43,7 @@ Purpose: show when external documentation changes answer quality.
 Expected shape: keep chart/form accessibility questions visible. Use external
 docs for accessible charts, forms, or currency formatting.
 
-## `05-automation-and-surfaces`
+## `05-automation-and-hooks`
 
 Purpose: turn repeated, boring, bounded checks into automation candidates.
 
