@@ -1,65 +1,22 @@
-# TripLens Workshop Notes
+# TripLens Workshop Docs
 
-This folder contains attendee and facilitator material for turning TripLens into
-the Antigravity workshop exercise repository.
+This folder is the public workshop documentation surface for TripLens.
 
-The deployed `main` branch is the full app. Checkpoint branches are created from
-that app by removing, adding, or altering specific pieces so each exercise has a
-clear teaching surface.
-
-## Files
-
-- `branch-flow.md`: checkpoint branch purpose and expected app shape.
-- `prompt-pack.md`: copy-ready prompts for the workshop exercises.
-- `cli-command-showcase.md`: optional branch `06` trainer guide for CLI flags,
-  slash commands, shortcuts, settings, and take-home practice.
-
-## Context Stack In `01-agent-context`
-
-The `01-agent-context` branch demonstrates the local context layer that is
-missing from `00-unprepared-agent`:
-
-- Rules in `.agents/rules/` define always-on boundaries.
-- Workflows in `.agents/workflows/` define repeatable routines.
-- Skills in `.agents/skills/` provide deeper reusable task knowledge.
-
-For the `00` versus `01` comparison, run the same plain prompt on both branches.
-Do not invoke workflows yet. The goal is to see whether ambient project context
-changes the output.
-
-The `.agents/plugins/triplens-pr-review/` plugin is introduced later in
-`03-inspect-and-verify`, where its reviewer agent and supporting skills act as
-a PR-style inspection surface.
-
-The `.agents/mcp_config.json` MCP configuration is introduced in
-`04-external-context-mcp` as the Google Antigravity-facing workshop artifact.
-It intentionally includes two different MCP styles: Context7 for external
-documentation and Chrome DevTools for live browser inspection.
-
-In Antigravity, the active raw MCP config is managed from the MCP Servers UI
-and stored globally under the user's Gemini/Antigravity config directory. This
-repo file exists so attendees can inspect the exact servers for this branch and
-copy the `mcpServers` block into Antigravity when needed.
-
-The `.agents/hooks.json` hook configuration is introduced in
-`05-automation-and-hooks`. It pairs with the scheduled PR brief demo: scheduling
-decides when the agent runs, while the hook provides a deterministic read-only
-guardrail before shell commands execute.
-
-## Teaching Spine
+TripLens is a small post-trip travel insights app used to teach a practical Antigravity workflow:
 
 ```txt
 Context -> Plan -> Execute -> Inspect -> Verify -> Automate
 ```
 
-The product domain should stay light and understandable. The point is not to
-teach travel finance. The point is to give agents a real app surface where
-context, planning, review, verification, MCP, scheduled automation, and hooks
-become visible.
+## Start Here
 
-## Optional CLI Wrap-Up
+- Use [guide.md](guide.md) during the live workshop and for self-paced learning.
+- Use [branch-flow.md](branch-flow.md) when you only need the short checkpoint map.
 
-Branch `06-command-showcase` is a CLI showcase, not a product exercise. Use it
-after `05-automation-and-hooks` only if there is time left. The command
-checklist lives in `cli-command-showcase.md` so the prompt pack can stay
-copy-ready while still giving attendees a complete take-home reference.
+## How The Docs Fit Together
+
+- Start with the root [README](../../README.md) for the repository overview.
+- Use the workshop guide as the single source of truth for setup, branch steps, prompts, expected observations, and recovery.
+- Use the branch flow as the compact reference when you only need to know why a branch exists.
+
+The private facilitator notes are not published here. Public docs should be clear enough for attendees and self-paced learners without exposing every trainer planning detail.
