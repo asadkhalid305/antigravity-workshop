@@ -609,6 +609,8 @@ Priority commands:
 - `/tasks` and `/agents` for work visibility.
 - `/diff`, `/fork`, `/rewind`, `/usage`, `/credits`, settings, permissions, shortcuts, and launch flags as additional exploration.
 
+The full command reference lives in [cli-command-showcase.md](cli-command-showcase.md). Use this branch to demonstrate the highest-value commands live, then leave the reference for take-home exploration.
+
 Prompt 06A:
 
 ```bash
