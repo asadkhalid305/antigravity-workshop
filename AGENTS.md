@@ -1,28 +1,16 @@
 # AGENTS.md
 
-Guidance for agentic work in this repository.
-
-## Product
-
-TripLens is a post-trip travel spending insight app. It is not a finance app,
-budgeting app, live expense tracker, bank integration, or financial advice
-product.
-
-The core user job:
-
-> After a trip, I want to enter category totals and understand my travel
-> patterns so future trips are easier to plan.
+This is a Next.js app.
 
 ## Commands
 
 ```bash
-npm run dev        # Start local Next.js dev server
-npm run lint       # ESLint
-npm run typecheck  # TypeScript without emitting
-npm run test       # Vitest unit tests
-npm run build      # Production build
-npm run verify     # lint + typecheck + tests + build
+npm run dev
+npm run lint
+npm run build
 ```
+
+Keep changes small and make sure the app still builds.
 
 ## Context Surfaces
 
