@@ -1,40 +1,22 @@
-# TripLens Workshop Notes
+# TripLens Workshop Docs
 
-This folder contains attendee and facilitator material for turning TripLens into
-the Antigravity workshop exercise repository.
+This folder is the public workshop documentation surface for TripLens.
 
-The deployed `main` branch is the full app. Checkpoint branches are created from
-that app by removing, adding, or altering specific pieces so each exercise has a
-clear teaching surface.
-
-## Files
-
-- `branch-flow.md`: checkpoint branch purpose and expected app shape.
-- `prompt-pack.md`: copy-ready prompts for the workshop exercises.
-
-## Context Stack In `01-agent-context`
-
-The `01-agent-context` branch demonstrates the local context layer that is
-missing from `00-unprepared-agent`:
-
-- Rules in `.agents/rules/` define always-on boundaries.
-- Workflows in `.agents/workflows/` define repeatable routines.
-- Skills in `.agents/skills/` provide deeper reusable task knowledge.
-
-For the `00` versus `01` comparison, run the same plain prompt on both branches.
-Do not invoke workflows yet. The goal is to see whether ambient project context
-changes the output.
-
-The `.agents/plugins/triplens-pr-review/` plugin is introduced later in
-`03-inspect-and-verify`, where its reviewer agent and supporting skills act as
-a PR-style inspection surface.
-
-## Teaching Spine
+TripLens is a small post-trip travel insights app used to teach a practical Antigravity workflow:
 
 ```txt
 Context -> Plan -> Execute -> Inspect -> Verify -> Automate
 ```
 
-The product domain should stay light and understandable. The point is not to
-teach travel finance. The point is to give agents a real app surface where
-context, planning, review, verification, MCP, and automation become visible.
+## Start Here
+
+- Use [guide.md](guide.md) during the live workshop and for self-paced learning.
+- Use [branch-flow.md](branch-flow.md) when you only need the short checkpoint map.
+
+## How The Docs Fit Together
+
+- Start with the root [README](../../README.md) for the repository overview.
+- Use the workshop guide as the single source of truth for setup, branch steps, prompts, expected observations, and recovery.
+- Use the branch flow as the compact reference when you only need to know why a branch exists.
+
+The private facilitator notes are not published here. Public docs should be clear enough for attendees and self-paced learners without exposing every trainer planning detail.
