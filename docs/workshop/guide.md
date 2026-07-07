@@ -192,7 +192,11 @@ Self-paced flow:
 Prompt:
 
 ```txt
-Improve this post-trip travel insights app so it is more useful for someone who travels a few times per year. Keep the app simple and make the change directly.
+Improve TripLens for someone who has completed several trips and wants to compare trips and enter or edit post-trip category totals with less friction. Choose a cohesive, small-to-medium improvement that makes the dashboard, trip comparison, and New/Edit trip experience clearer and more useful.
+
+Before editing, briefly plan the change. After editing, review your diff and verify the changed flows.
+
+Do not add authentication, databases, bank sync, OCR, live finance features, or new dependencies unless absolutely necessary. Keep the app simple, preserve existing conventions, and explain what changed, which files changed, and which checks you ran.
 ```
 
 Observe:
@@ -234,28 +238,25 @@ What is different here:
 Live workshop flow:
 
 1. Wait for the facilitator to show the context files.
-2. Ask the agent to inspect the context.
-3. Run the improvement prompt.
-4. Compare with the branch `00` result.
+2. Run the context-aware improvement prompt.
+3. Compare with the branch `00` result.
 
 Self-paced flow:
 
 1. Open `AGENTS.md` and the `.agents` folders.
-2. Ask the agent to inspect the local context.
-3. Read the summary before asking for edits.
-4. Run the improvement prompt.
-5. Compare the result with exercise 00.
+2. Run the context-aware improvement prompt.
+3. Compare the result with exercise 00.
 
-Prompt 01A:
+Prompt:
 
 ```txt
-Inspect the local context files in this project. Summarize what the rules, workflows, and skills are meant to do for TripLens. Do not edit files.
-```
+Use the TripLens project context for this branch, including the relevant rules, workflows, and skills.
 
-Prompt 01B:
+Improve TripLens for someone who has completed several trips and wants to compare trips and enter or edit post-trip category totals with less friction. Choose a cohesive, small-to-medium improvement that makes the dashboard, trip comparison, and New/Edit trip experience clearer and more useful.
 
-```txt
-Using the project context, improve this post-trip travel insights app so it is more useful for someone who travels a few times per year. Keep the change small, follow the existing conventions, and explain what changed.
+Before editing, use the TripLens change-planning workflow. While implementing, follow the product boundary, data contract, UI quality, feature-work, and UI/forms guidance. After editing, review the diff using the TripLens review workflow and verify the changed flows using the TripLens verification workflow.
+
+Do not add authentication, databases, bank sync, OCR, live finance features, or new dependencies unless absolutely necessary. Keep the app simple, preserve existing conventions, and explain what changed, which files changed, and which checks you ran.
 ```
 
 Observe:
