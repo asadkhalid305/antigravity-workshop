@@ -14,13 +14,13 @@ Expected shape: a polished small app with dashboard metrics, charts, add/edit/re
 
 Purpose: show that a broad request can produce different valid outputs when the project lacks enough operating context.
 
-Expected shape: minimal AI-related project context. Use a broad prompt such as "make this post-trip insights app more useful" and compare results across people or groups.
+Expected shape: minimal AI-related project context. Use the branch `00` improvement prompt from the workshop guide, then compare results across people or groups.
 
 ## `01-agent-context`
 
 Purpose: show that rules, workflows, and skills reduce guessing.
 
-Expected shape: the app has project context under `.agents/rules/`, `.agents/workflows/`, and `.agents/skills/`. Ask the agent to inspect the context before repeating a broad improvement prompt.
+Expected shape: the app has project context under `.agents/rules/`, `.agents/workflows/`, and `.agents/skills/`. Use a single context-aware improvement prompt that explicitly invokes the relevant rules, workflows, and skills, then compare it with the equivalent branch `00` prompt that does not mention unavailable context files.
 
 ## `02-plan-before-editing`
 
