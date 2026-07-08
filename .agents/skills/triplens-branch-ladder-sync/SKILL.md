@@ -29,8 +29,10 @@ not include later branch material.
 
 ## Teaching Contract
 
-- `main` and `00`: no `.agents` context surfaces.
-- `01`: introduces `.agents/rules`, `.agents/workflows`, and `.agents/skills`.
+- `main` and `00`: keep the app baseline clean. The only allowed `.agents`
+  content is this branch-ladder sync skill, so agents can discover the sync
+  workflow when work starts from `main`.
+- `01`: introduces product rules, workflows, and feature/review skills.
 - `02`: inherits `01` and adds the plan-before-editing exercise.
 - `03`: adds the PR-review plugin and keeps the deliberate daily-cost bug.
 - `04`: inherits `03`, fixes the daily-cost bug, and keeps the MCP compare API
@@ -67,9 +69,9 @@ sync across the ladder unless a file is intentionally branch-specific.
 6. If shared docs changed on `main`, merge or cherry-pick the validated docs
    forward from `main` to `00`, then cascade `00 -> 01 -> 02 -> 03 -> 04 -> 05
    -> 06`.
-7. Preserve branch-specific layers when resolving conflicts. In particular, do
-   not add `.agents` to `main` or `00`, and do not remove the PR-review plugin
-   from `03+`.
+7. Preserve branch-specific layers when resolving conflicts. Keep this skill
+   available on every branch, but do not add other context/rule/workflow/plugin
+   surfaces to `main` or `00`.
 8. Before deleting any branch, check open PR heads:
 
    ```bash
