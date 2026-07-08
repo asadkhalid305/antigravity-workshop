@@ -1,3 +1,7 @@
+---
+description: Review an existing TripLens diff for product-boundary drift, data or calculation risk, UI/form/chart issues, and missing verification.
+---
+
 # Workflow: Review A TripLens Change
 
 Use this workflow after a TripLens diff exists.
