@@ -1,6 +1,6 @@
-# TripLens
+# Antigravity Workshop
 
-TripLens is a small post-trip travel insights app used as the practical repository for a Google Antigravity workshop.
+This repository is the practical workspace for a Google Antigravity workshop. It uses TripLens, a small post-trip travel insights app, as the demo application.
 
 The product is intentionally simple: trips, spending categories, charts, forms, comparisons, mock API routes, local persistence, and focused tests. The point is not to teach travel finance. The point is to give attendees a realistic app surface where agentic development habits are visible.
 
@@ -47,11 +47,11 @@ Open a new terminal after installation and confirm:
 agy --version
 ```
 
-Clone and run TripLens:
+Clone the workshop repo and run TripLens:
 
 ```bash
-git clone https://github.com/asadkhalid305/triplens.git
-cd triplens
+git clone https://github.com/asadkhalid305/antigravity-workshop.git
+cd antigravity-workshop
 npm install
 npm run dev
 ```
