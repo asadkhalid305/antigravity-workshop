@@ -27,7 +27,7 @@ Install prerequisites:
 - [Git](https://git-scm.com/downloads)
 - [Node.js LTS](https://nodejs.org/) with `npm`
 - Google Antigravity CLI
-- A modern browser for `http://localhost:3000`
+- A modern browser for the local TripLens URL printed by `npm run dev`
 
 Install Antigravity CLI:
 
@@ -56,7 +56,9 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open the local URL printed by the dev server. It will usually look like
+`http://localhost:<port>`. Replace `<port>` with the port shown in your
+terminal, for example `http://localhost:8000`.
 
 Useful checks:
 

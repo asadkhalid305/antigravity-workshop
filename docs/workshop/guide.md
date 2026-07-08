@@ -25,7 +25,8 @@ Install prerequisites:
 - [Git](https://git-scm.com/downloads)
 - [Node.js LTS](https://nodejs.org/) with `npm`
 - Google Antigravity CLI
-- A modern browser for `http://localhost:3000`
+- A modern browser for the local TripLens URL printed by `npm run dev`
+- [Audience Meter Chrome extension](https://chromewebstore.google.com/detail/jjbhlikflnmgpfpoogbpmeibnclebhgk?utm_source=item-share-cb)
 
 Install Antigravity CLI:
 
@@ -54,7 +55,24 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open the local URL printed by the dev server. It will usually look like
+`http://localhost:<port>`. Replace `<port>` with the port shown in your
+terminal, for example `http://localhost:8000`.
+
+Install the Audience Meter Chrome extension before or during setup, but wait for
+the facilitator before joining the workshop session. During the session, the
+extension lets you give quick progress feedback, signal when you are stuck, and
+ask for help without interrupting the room. The facilitator can see these
+signals while the workshop is running and use them to decide when to pause,
+clarify, or help a group directly.
+
+When the facilitator reaches the setup step, open the extension and join the
+workshop session with PIN `lO2ko`. Joining at that point keeps the step nudges
+aligned with the live workshop flow.
+
+Use the learner PIN field in the extension:
+
+![Audience Meter extension learner PIN field](images/audience-meter-extension-pin.png)
 
 Useful checks:
 
