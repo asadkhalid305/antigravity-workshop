@@ -1,4 +1,4 @@
-# TripLens Workshop Guide
+# Antigravity Workshop Guide
 
 Use this guide during the live workshop or when learning on your own later.
 
@@ -8,7 +8,7 @@ This is the single source of truth for attendee-facing setup, branch steps, prom
 
 ## Workshop Promise
 
-TripLens teaches this practical AI-assisted development loop:
+The workshop teaches this practical AI-assisted development loop:
 
 ```txt
 Context -> Plan -> Execute -> Inspect -> Verify -> Automate
@@ -45,11 +45,11 @@ Open a new terminal after installation and confirm:
 agy --version
 ```
 
-Clone and run TripLens:
+Clone the workshop repo and run TripLens:
 
 ```bash
-git clone https://github.com/asadkhalid305/triplens.git
-cd triplens
+git clone https://github.com/asadkhalid305/antigravity-workshop.git
+cd antigravity-workshop
 npm install
 npm run dev
 ```
@@ -397,7 +397,7 @@ Use the TripLens PR review plugin's reviewer agent to review PR #1.
 Alternative prompt:
 
 ```txt
-Review this PR: https://github.com/asadkhalid305/triplens/pull/1
+Review this PR: https://github.com/asadkhalid305/antigravity-workshop/pull/1
 ```
 
 Posting prompt, only after you approve the proposed comments:
