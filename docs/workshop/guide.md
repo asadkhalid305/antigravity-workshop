@@ -329,7 +329,7 @@ Self-paced flow:
 Prompt 02A:
 
 ```txt
-/planning We need a way to compare one completed trip against another completed trip. Inspect the current app and propose a small implementation plan.
+/plan We need a way to compare one completed trip against another completed trip. Inspect the current app and propose a small implementation plan.
 ```
 
 Prompt 02B:
