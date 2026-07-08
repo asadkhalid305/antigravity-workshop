@@ -1,8 +1,8 @@
-# TripLens Workshop Docs
+# Antigravity Workshop Docs
 
-This folder is the public workshop documentation surface for TripLens.
+This folder is the public documentation surface for the Antigravity workshop.
 
-TripLens is a small post-trip travel insights app used to teach a practical Antigravity workflow:
+The workshop uses TripLens, a small post-trip travel insights app, to teach a practical Antigravity workflow:
 
 ```txt
 Context -> Plan -> Execute -> Inspect -> Verify -> Automate
