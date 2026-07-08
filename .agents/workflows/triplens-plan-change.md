@@ -1,3 +1,7 @@
+---
+description: Plan a non-trivial TripLens change by inspecting project context, defining scope, identifying likely files, and proposing verification before editing.
+---
+
 # Workflow: Plan A TripLens Change
 
 Use this workflow when a TripLens request is non-trivial or touches UI, forms,
